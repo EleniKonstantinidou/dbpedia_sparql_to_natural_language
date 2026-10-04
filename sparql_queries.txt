@@ -1,0 +1,50 @@
+PREFIX dbo: <http://dbpedia.org/ontology/>PREFIX dbr: <http://dbpedia.org/resource/>SELECT ?winnerName WHERE {?winner dbo:award dbr:Nobel_Prize_in_Literature ;foaf:name ?winnerName .} LIMIT 10
+PREFIX dbo: <http://dbpedia.org/ontology/>PREFIX dbr: <http://dbpedia.org/resource/>PREFIX dct: <http://purl.org/dc/terms/>SELECT ?battleName WHERE {?battle dct:subject dbr:Category:Battles_and_operations_of_World_War_II ;foaf:name ?battleName .} LIMIT 10
+PREFIX dbo: <http://dbpedia.org/ontology/>PREFIX dct: <http://purl.org/dc/terms/>SELECT ?musicianName WHERE {?musician dct:subject <http://dbpedia.org/resource/Category:American_jazz_musicians> ;foaf:name ?musicianName .} LIMIT 10
+PREFIX dbo: <http://dbpedia.org/ontology/>PREFIX dbr: <http://dbpedia.org/resource/>PREFIX dct: <http://purl.org/dc/terms/>SELECT ?siteName WHERE {?site dct:subject dbr:Category:World_Heritage_Sites_in_France ;foaf:name ?siteName .} ORDER BY RAND() LIMIT 10
+PREFIX dbo: <http://dbpedia.org/ontology/>PREFIX dbr: <http://dbpedia.org/resource/>SELECT ?cityName WHERE {?city a dbo:City ;dbo:country dbr:Japan ;foaf:name ?cityName .} ORDER BY RAND() LIMIT 15
+PREFIX dbo: <http://dbpedia.org/ontology/>PREFIX dbr: <http://dbpedia.org/resource/>PREFIX dct: <http://purl.org/dc/terms/>SELECT ?dishName WHERE {?dish dct:subject dbr:Category:Italian_cuisine ;foaf:name ?dishName .} LIMIT 20
+PREFIX dbo: <http://dbpedia.org/ontology/>PREFIX dbr: <http://dbpedia.org/resource/>SELECT ?workTitle WHERE {?work dbo:author dbr:William_Shakespeare ;foaf:name ?workTitle .} LIMIT 15
+PREFIX dbo: <http://dbpedia.org/ontology/>SELECT ?islandName WHERE {?island a dbo:Island ;dbo:location <http://dbpedia.org/resource/Caribbean> ;foaf:name ?islandName .} LIMIT 15
+PREFIX owl: <http://www.w3.org/2002/07/owl#> PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX dc: <http://purl.org/dc/elements/1.1/> PREFIX : <http://dbpedia.org/resource/> PREFIX dbpedia2: <http://dbpedia.org/property/> PREFIX dbpedia: <http://dbpedia.org/> PREFIX skos: <http://www.w3.org/2004/02/skos/core#> SELECT ?name from <http://dbpedia3.8> where {   ?drink dcterms:subject <http://dbpedia.org/resource/Category:Cocktails_with_whisky> ;  rdfs:label ?name .    FILTER ( lang(?name) = "en" ) } 
+select ?actor from <http://dbpedia3.8> where { <http://dbpedia.org/resource/Monsieur_Klein><http://dbpedia.org/ontology/starring> ?actor. }
+select ?actor from <http://dbpedia3.8> where { <http://dbpedia.org/resource/The_Bostonians_(film)><http://dbpedia.org/ontology/starring> ?actor. }
+PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dbr: <http://dbpedia.org/resource/>SELECT ?winnerName WHERE {?winner dbo:award dbr:Nobel_Prize_in_Physics .?winner foaf:name ?winnerName .} LIMIT 10
+SELECT ?abstract from <http://dbpedia3.8> where { <http://dbpedia.org/resource/Defense_of_Sihang_Warehouse><http://dbpedia.org/ontology/abstract> ?abstract . FILTER ( langMatches(lang(?abstract), "en")) }
+PREFIX dbo: <http://dbpedia.org/ontology/>PREFIX dbr: <http://dbpedia.org/resource/>SELECT ?bookTitle WHERE {?book dbo:author dbr:J._K._Rowling ;foaf:name ?bookTitle .} LIMIT 10
+PREFIX dbo: <http://dbpedia.org/ontology/>PREFIX dbr: <http://dbpedia.org/resource/>SELECT ?bookTitle WHERE {?book dbo:author dbr:Agatha_Christie ;foaf:name ?bookTitle .} LIMIT 10
+PREFIX dbo: <http://dbpedia.org/ontology/>SELECT ?countryName ?capitalName WHERE {?country a dbo:Country ; dbo:capital ?capital ;foaf:name ?countryName .?capital foaf:name ?capitalName .} ORDER BY RAND()  LIMIT 20
+PREFIX dbo: <http://dbpedia.org/ontology/>SELECT ?building ?height WHERE {?building a dbo:Building ;dbo:height ?height .}ORDER BY DESC(?height) LIMIT 15
+PREFIX dbo: <http://dbpedia.org/ontology/>PREFIX dbr: <http://dbpedia.org/resource/>SELECT ?workTitle WHERE {?work dbo:author dbr:Vincent_van_Gogh ;foaf:name ?workTitle .} ORDER BY RAND() LIMIT 15
+PREFIX dbo: <http://dbpedia.org/ontology/>PREFIX dbr: <http://dbpedia.org/resource/>SELECT ?language WHERE {?language a dbo:Language ;dbo:spokenIn dbr:India .?language foaf:name ?languageName .} LIMIT 15
+SELECT ?nAct, ?nPel from <http://dbpedia3.8> where { ?actor a <http://dbpedia.org/ontology/Actor>. ?peli <http://dbpedia.org/ontology/starring> ?actor. ?actor <http://dbpedia.org/property/name> ?nAct. ?peli <http://xmlns.com/foaf/0.1/name> ?nPel. } LIMIT 10
+SELECT ?actor ?award WHERE {?actor rdf:type dbo:Actor .?actor dbo:award ?award .} LIMIT 15
+SELECT ?scientist ?field WHERE {?scientist rdf:type dbo:Scientist .?scientist dbo:field ?field .} ORDER BY RAND() LIMIT 15
+SELECT ?book ?film WHERE {?film rdf:type dbo:Film .?film dbo:basedOn ?book .?book rdf:type dbo:Book .} ORDER BY RAND() LIMIT 15
+SELECT ?park ?country WHERE {?park rdf:type dbo:ProtectedArea .?park dbo:location ?country .} ORDER BY RAND() LIMIT 20
+SELECT ?airline ?hub WHERE { ?airline rdf:type dbo:Airline .?airline dbo:hubAirport ?hub . } ORDER BY RAND() LIMIT 15
+SELECT ?cheese ?origin WHERE { ?cheese rdf:type dbo:Cheese .?cheese dbo:region ?origin .} ORDER BY RAND() LIMIT 12
+SELECT ?streetFood ?placeOfOrigin WHERE{?streetFood dbo:type dbr:Street_food .?streetFood dbo:region ?placeOfOrigin .} LIMIT 10
+SELECT ?party ?country WHERE {?party rdf:type dbo:PoliticalParty .?party dbo:country ?country .} ORDER BY RAND() LIMIT 10
+SELECT ?play ?playwright WHERE {?play rdf:type dbo:Play .?play dbo:author ?playwright .} ORDER BY RAND()  LIMIT 10
+SELECT ?architect ?notableWork WHERE {?architect rdf:type dbo:Architect .?architect dbo:notableWork ?notableWork .} ORDER BY RAND() LIMIT 10
+PREFIX dbo: <http://dbpedia.org/ontology/>PREFIX dbr: <http://dbpedia.org/resource/>PREFIX foaf: <http://xmlns.com/foaf/0.1/>SELECT ?film ?title WHERE {?film dbo:starring dbr:Leonardo_DiCaprio ;foaf:name ?title .}
+SELECT ?country ?language WHERE {?country a dbo:Country ;  dbo:language ?language .} ORDER BY RAND() LIMIT 20
+PREFIX dbo: <http://dbpedia.org/ontology/>PREFIX dbr: <http://dbpedia.org/resource/>SELECT ?monument ?name WHERE {?monument dbo:location dbr:Athens;a dbo:HistoricBuilding ; foaf:name ?name .}
+SELECT ?museum ?name WHERE {?museum rdf:type dbo:Museum ; dbo:location ?location . ?location dbo:country dbr:Turkey . OPTIONAL { ?museum foaf:name ?name . }} ORDER BY RAND() LIMIT 10
+PREFIX dbo: <http://dbpedia.org/ontology/>PREFIX dbr: <http://dbpedia.org/resource/>PREFIX dct: <http://purl.org/dc/terms/>SELECT ?siteName WHERE {?site dct:subject dbr:Category:World_Heritage_Sites_in_Italy ;foaf:name ?siteName .} LIMIT 10
+PREFIX dbo: <http://dbpedia.org/ontology/>PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>SELECT ?movieTitle WHERE {?movie a dbo:Film ;dbo:releaseDate ?date ;foaf:name ?movieTitle .FILTER (year(?date) = 2020)} ORDER BY RAND()  LIMIT 10
+SELECT ?dialect ?region WHERE { ?dialect rdf:type dbo:Language ; dbo:spokenIn dbr:Italy .OPTIONAL { ?dialect dbo:region ?region . }}LIMIT 10
+SELECT ?city WHERE {?city rdf:type dbo:City ; dbo:country dbr:United_Kingdom .} ORDER BY RAND() LIMIT 10
+PREFIX dbo: <http://dbpedia.org/ontology/>PREFIX dbr: <http://dbpedia.org/resource/>SELECT ?novelTitle WHERE {?novel dbo:author dbr:Charles_Dickens ;foaf:name ?novelTitle .} LIMIT 10
+PREFIX dbo: <http://dbpedia.org/ontology/>SELECT ?bridge ?location WHERE {?bridge a dbo:Bridge ;dbo:location ?location .?bridge foaf:name ?bridgeName .}LIMIT 20
+PREFIX dbo: <http://dbpedia.org/ontology/>PREFIX dbr: <http://dbpedia.org/resource/>SELECT ?winnerName WHERE {?winner dbo:award dbr:Nobel_Prize_in_Chemistry ;foaf:name ?winnerName .} ORDER BY RAND() LIMIT 15
+SELECT ?river ?length WHERE { ?river rdf:type dbo:River . OPTIONAL { ?river dbo:length ?length . } } ORDER BY DESC(?length) LIMIT 10
+SELECT ?park ?name WHERE { ?park rdf:type dbo:Park ; dbo:location dbr:London .OPTIONAL { ?park foaf:name ?name . } } ORDER BY RAND()
+SELECT ?artwork ?title WHERE { ?artwork dbo:museum dbr:Louvre ;  rdf:type dbo:Artwork . OPTIONAL { ?artwork foaf:name ?title . } }
+SELECT ?director ?film WHERE { ?film rdf:type dbo:Film ; dbo:director ?director .} ORDER BY RAND() LIMIT 10
+SELECT ?bodyOfWater ?maxDepth WHERE {  ?bodyOfWater rdf:type dbo:BodyOfWater ;  dbo:maximumDepth ?maxDepth . } ORDER BY DESC(?maxDepth)
+SELECT ?artist ?masterpiece WHERE { ?artist rdf:type dbo:Artist ; dbo:notableWork ?masterpiece .} ORDER BY RAND()  LIMIT 15
+SELECT ?property ?value WHERE {  dbr:Frida_Kahlo ?property ?value . } ORDER BY RAND() LIMIT 20
+SELECT ?landmark ?name WHERE { ?landmark dbo:location dbr:Spain ; rdf:type dbo:Building . OPTIONAL { ?landmark foaf:name ?name . } FILTER(lang(?name) = "en" || lang(?name) = "")} ORDER BY RAND()
+SELECT ?event WHERE {?event dbo:date ?date . FILTER (YEAR(?date) >= 1900 && YEAR(?date) < 2000) }
